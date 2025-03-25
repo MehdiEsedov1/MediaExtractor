@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
                 contact = @Contact(
                         name = "Mehdi",
                         email = "mehdiesedof@gmail.com",
-                        url = "mehdiasadov.com")
+                        url = "https://www.mehdiasadov.com/")
         ))
 public class SwaggerConfig {
 }
