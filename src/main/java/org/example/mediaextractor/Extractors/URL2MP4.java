@@ -15,12 +15,16 @@ public class URL2MP4 {
     @GetMapping("/yt2mp4")
     public void url2mp4(@RequestParam String url) {
         try {
+            String urlClean = url.replaceAll("[^a-zA-Z0-9]", "_");
+            String outputDir = System.getProperty("user.home") + "/Desktop/mp4/";
+            new java.io.File(outputDir).mkdirs();
+
             ProcessBuilder pb = new ProcessBuilder(
                     "src/main/resources/bin/yt-dlp_linux",
                     "-S", "ext:mp4",
                     "-f", "bv+ba",
                     "--merge-output-format", "mp4",
-                    "-o", "output/video/%(title)s.mp4",
+                    "-o", outputDir + urlClean + ".mp4",
                     url
             );
 
